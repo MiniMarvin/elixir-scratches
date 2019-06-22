@@ -15,3 +15,15 @@ defmodule Recursion do
 		[]
 	end
 end
+
+
+defmodule TailRecursive do
+	def factorial x do
+		# must make the call tail recursive other than x * factorial(x - 1)
+		_factorial(max(x, 0), 1)
+	end
+
+	defp _factorial(0, acc), do: acc
+
+	defp _factorial(x, acc), do: _factorial(x - 1, acc * x)
+end
